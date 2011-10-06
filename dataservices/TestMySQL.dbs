@@ -1,0 +1,50 @@
+<data name="TestMySQL" serviceNamespace="http://ds.ws.wso2brasil.com.br/" serviceGroup="DSTests">
+   <config id="default">
+      <property name="carbon_datasource_name">wso2ds_test_mysql</property>
+   </config>
+   <query id="insertCategory" useConfig="default" returnGeneratedKeys="true" keyColumns="id">
+      <sql>insert into categories (name) values (:name)</sql>
+      <result element="GeneratedKeys" rowName="Entry" useColumnNumbers="true">
+         <element name="ID" column="1" xsdType="xs:integer" />
+      </result>
+      <param name="name" sqlType="STRING" ordinal="1" />
+   </query>
+   <query id="updateCategory" useConfig="default">
+      <sql>UPDATE categories SET name = :name WHERE id = :id</sql>
+      <param name="name" sqlType="STRING" ordinal="1" />
+      <param name="id" sqlType="INTEGER" ordinal="2" />
+   </query>
+   <query id="cleanCategories" useConfig="default">
+      <sql>truncate table categories</sql>
+   </query>
+   <query id="selectCategory" useConfig="default">
+      <sql>SELECT id, name FROM categories WHERE (id = :id OR :id IS NULL) AND (name LIKE :name OR :name IS NULL)</sql>
+      <result element="Categories" rowName="Category">
+         <element name="id" column="id" xsdType="xs:integer" />
+         <element name="name" column="name" xsdType="xs:string" />
+      </result>
+      <param name="id" sqlType="INTEGER" ordinal="1" />
+      <param name="name" sqlType="STRING" ordinal="2" />
+   </query>
+   <operation name="insertCategory">
+      <call-query href="insertCategory">
+         <with-param name="name" query-param="name" />
+      </call-query>
+   </operation>
+   <operation name="updateCategory">
+      <call-query href="updateCategory">
+         <with-param name="name" query-param="name" />
+         <with-param name="id" query-param="id" />
+      </call-query>
+   </operation>
+   <operation name="cleanCategories">
+      <call-query href="cleanCategories" />
+   </operation>
+   <operation name="selectCategory">
+      <call-query href="selectCategory">
+         <with-param name="id" query-param="id" />
+         <with-param name="name" query-param="name" />
+      </call-query>
+   </operation>
+</data>
+

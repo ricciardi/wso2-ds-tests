@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project name="WSO2 DS" resourceRoot="" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WSODSTestSOAP12Binding" type="wsdl" bindingName="{http://ds.ws.wso2brasil.com.br/}WSODSTestSOAP12Binding" soapVersion="1_2" anonymous="optional" definition="http://localhost:9763/services/WSODSTest?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9763/services/WSODSTest?wsdl"><con:part><con:url>http://localhost:9763/services/WSODSTest?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ds.ws.wso2brasil.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://ds.ws.wso2brasil.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<con:soapui-project name="WSO2 DS MySQL" resourceRoot="" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TestMySQLSOAP12Binding" type="wsdl" bindingName="{http://ds.ws.wso2brasil.com.br/}TestMySQLSOAP12Binding" soapVersion="1_2" anonymous="optional" definition="http://localhost:9763/services/TestMySQL?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9763/services/TestMySQL?wsdl"><con:part><con:url>http://localhost:9763/services/TestMySQL?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ds.ws.wso2brasil.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://ds.ws.wso2brasil.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
   <wsdl:documentation/>
   <wsdl:types>
     <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ds.ws.wso2brasil.com.br/">
@@ -74,7 +74,7 @@
   <wsdl:message name="updateCategoryRequest">
     <wsdl:part name="parameters" element="ns0:updateCategory"/>
   </wsdl:message>
-  <wsdl:portType name="WSODSTestPortType">
+  <wsdl:portType name="TestMySQLPortType">
     <wsdl:operation name="insertCategory">
       <wsdl:documentation/>
       <wsdl:input message="ns0:insertCategoryRequest" wsaw:Action="urn:insertCategory"/>
@@ -98,7 +98,7 @@
       <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:updateCategoryDataServiceFault"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WSODSTestSOAP11Binding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLSOAP11Binding" type="ns0:TestMySQLPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <wsdl:operation name="insertCategory">
       <soap:operation soapAction="urn:insertCategory" style="document"/>
@@ -143,7 +143,7 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WSODSTestSOAP12Binding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLSOAP12Binding" type="ns0:TestMySQLPortType">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <wsdl:operation name="insertCategory">
       <soap12:operation soapAction="urn:insertCategory" style="document"/>
@@ -188,7 +188,7 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WSODSTestHttpBinding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLHttpBinding" type="ns0:TestMySQLPortType">
     <http:binding verb="POST"/>
     <wsdl:operation name="insertCategory">
       <http:operation location="insertCategory"/>
@@ -221,37 +221,37 @@
       </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="WSODSTest">
-    <wsdl:port name="SOAP11Endpoint" binding="ns0:WSODSTestSOAP11Binding">
-      <soap:address location="http://localhost:9763/services/WSODSTest.SOAP11Endpoint/"/>
+  <wsdl:service name="TestMySQL">
+    <wsdl:port name="SOAP11Endpoint" binding="ns0:TestMySQLSOAP11Binding">
+      <soap:address location="http://localhost:9763/services/TestMySQL.SOAP11Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:WSODSTestSOAP11Binding">
-      <soap:address location="https://localhost:9443/services/WSODSTest.SecureSOAP11Endpoint/"/>
+    <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:TestMySQLSOAP11Binding">
+      <soap:address location="https://localhost:9443/services/TestMySQL.SecureSOAP11Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:WSODSTestSOAP12Binding">
-      <soap12:address location="https://localhost:9443/services/WSODSTest.SecureSOAP12Endpoint/"/>
+    <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:TestMySQLSOAP12Binding">
+      <soap12:address location="https://localhost:9443/services/TestMySQL.SecureSOAP12Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SOAP12Endpoint" binding="ns0:WSODSTestSOAP12Binding">
-      <soap12:address location="http://localhost:9763/services/WSODSTest.SOAP12Endpoint/"/>
+    <wsdl:port name="SOAP12Endpoint" binding="ns0:TestMySQLSOAP12Binding">
+      <soap12:address location="http://localhost:9763/services/TestMySQL.SOAP12Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="HTTPEndpoint" binding="ns0:WSODSTestHttpBinding">
-      <http:address location="http://localhost:9763/services/WSODSTest.HTTPEndpoint/"/>
+    <wsdl:port name="HTTPEndpoint" binding="ns0:TestMySQLHttpBinding">
+      <http:address location="http://localhost:9763/services/TestMySQL.HTTPEndpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureHTTPEndpoint" binding="ns0:WSODSTestHttpBinding">
-      <http:address location="https://localhost:9443/services/WSODSTest.SecureHTTPEndpoint/"/>
+    <wsdl:port name="SecureHTTPEndpoint" binding="ns0:TestMySQLHttpBinding">
+      <http:address location="https://localhost:9443/services/TestMySQL.SecureHTTPEndpoint/"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:9443/services/WSODSTest.SecureSOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:cleanCategories" name="cleanCategories" bindingOperationName="cleanCategories" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request>&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:9443/services/TestMySQL.SecureSOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:cleanCategories" name="cleanCategories" bindingOperationName="cleanCategories" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request>&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
    &lt;soap:Header/>
    &lt;soap:Body/>
-&lt;/soap:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:cleanCategories"/></con:call></con:operation><con:operation isOneWay="false" action="urn:insertCategory" name="insertCategory" bindingOperationName="insertCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+&lt;/soap:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:cleanCategories"/></con:call></con:operation><con:operation isOneWay="false" action="urn:insertCategory" name="insertCategory" bindingOperationName="insertCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soap:Header/>
    <soap:Body>
       <ds:insertCategory>
          <ds:name>?</ds:name>
       </ds:insertCategory>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:insertCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:updateCategory" name="updateCategory" bindingOperationName="updateCategory" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:insertCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:updateCategory" name="updateCategory" bindingOperationName="updateCategory" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soap:Header/>
    <soap:Body>
       <ds:updateCategory>
@@ -259,7 +259,7 @@
          <ds:id>?</ds:id>
       </ds:updateCategory>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:updateCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:selectCategory" name="selectCategory" bindingOperationName="selectCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:updateCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:selectCategory" name="selectCategory" bindingOperationName="selectCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soap:Header/>
    <soap:Body>
       <ds:selectCategory>
@@ -267,7 +267,7 @@
          <ds:name>?</ds:name>
       </ds:selectCategory>
    </soap:Body>
-</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:selectCategory"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WSODSTestSOAP11Binding" type="wsdl" bindingName="{http://ds.ws.wso2brasil.com.br/}WSODSTestSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9763/services/WSODSTest?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9763/services/WSODSTest?wsdl"><con:part><con:url>http://localhost:9763/services/WSODSTest?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ds.ws.wso2brasil.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://ds.ws.wso2brasil.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:selectCategory"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TestMySQLSOAP11Binding" type="wsdl" bindingName="{http://ds.ws.wso2brasil.com.br/}TestMySQLSOAP11Binding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9763/services/TestMySQL?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9763/services/TestMySQL?wsdl"><con:part><con:url>http://localhost:9763/services/TestMySQL?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ds.ws.wso2brasil.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://ds.ws.wso2brasil.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
   <wsdl:documentation/>
   <wsdl:types>
     <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ds.ws.wso2brasil.com.br/">
@@ -342,7 +342,7 @@
   <wsdl:message name="updateCategoryRequest">
     <wsdl:part name="parameters" element="ns0:updateCategory"/>
   </wsdl:message>
-  <wsdl:portType name="WSODSTestPortType">
+  <wsdl:portType name="TestMySQLPortType">
     <wsdl:operation name="insertCategory">
       <wsdl:documentation/>
       <wsdl:input message="ns0:insertCategoryRequest" wsaw:Action="urn:insertCategory"/>
@@ -366,7 +366,7 @@
       <wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:updateCategoryDataServiceFault"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="WSODSTestSOAP11Binding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLSOAP11Binding" type="ns0:TestMySQLPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <wsdl:operation name="insertCategory">
       <soap:operation soapAction="urn:insertCategory" style="document"/>
@@ -411,7 +411,7 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WSODSTestSOAP12Binding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLSOAP12Binding" type="ns0:TestMySQLPortType">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <wsdl:operation name="insertCategory">
       <soap12:operation soapAction="urn:insertCategory" style="document"/>
@@ -456,7 +456,7 @@
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WSODSTestHttpBinding" type="ns0:WSODSTestPortType">
+  <wsdl:binding name="TestMySQLHttpBinding" type="ns0:TestMySQLPortType">
     <http:binding verb="POST"/>
     <wsdl:operation name="insertCategory">
       <http:operation location="insertCategory"/>
@@ -489,37 +489,37 @@
       </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="WSODSTest">
-    <wsdl:port name="SOAP11Endpoint" binding="ns0:WSODSTestSOAP11Binding">
-      <soap:address location="http://localhost:9763/services/WSODSTest.SOAP11Endpoint/"/>
+  <wsdl:service name="TestMySQL">
+    <wsdl:port name="SOAP11Endpoint" binding="ns0:TestMySQLSOAP11Binding">
+      <soap:address location="http://localhost:9763/services/TestMySQL.SOAP11Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:WSODSTestSOAP11Binding">
-      <soap:address location="https://localhost:9443/services/WSODSTest.SecureSOAP11Endpoint/"/>
+    <wsdl:port name="SecureSOAP11Endpoint" binding="ns0:TestMySQLSOAP11Binding">
+      <soap:address location="https://localhost:9443/services/TestMySQL.SecureSOAP11Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:WSODSTestSOAP12Binding">
-      <soap12:address location="https://localhost:9443/services/WSODSTest.SecureSOAP12Endpoint/"/>
+    <wsdl:port name="SecureSOAP12Endpoint" binding="ns0:TestMySQLSOAP12Binding">
+      <soap12:address location="https://localhost:9443/services/TestMySQL.SecureSOAP12Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SOAP12Endpoint" binding="ns0:WSODSTestSOAP12Binding">
-      <soap12:address location="http://localhost:9763/services/WSODSTest.SOAP12Endpoint/"/>
+    <wsdl:port name="SOAP12Endpoint" binding="ns0:TestMySQLSOAP12Binding">
+      <soap12:address location="http://localhost:9763/services/TestMySQL.SOAP12Endpoint/"/>
     </wsdl:port>
-    <wsdl:port name="HTTPEndpoint" binding="ns0:WSODSTestHttpBinding">
-      <http:address location="http://localhost:9763/services/WSODSTest.HTTPEndpoint/"/>
+    <wsdl:port name="HTTPEndpoint" binding="ns0:TestMySQLHttpBinding">
+      <http:address location="http://localhost:9763/services/TestMySQL.HTTPEndpoint/"/>
     </wsdl:port>
-    <wsdl:port name="SecureHTTPEndpoint" binding="ns0:WSODSTestHttpBinding">
-      <http:address location="https://localhost:9443/services/WSODSTest.SecureHTTPEndpoint/"/>
+    <wsdl:port name="SecureHTTPEndpoint" binding="ns0:TestMySQLHttpBinding">
+      <http:address location="https://localhost:9443/services/TestMySQL.SecureHTTPEndpoint/"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:endpoint>https://localhost:9443/services/WSODSTest.SecureSOAP11Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:cleanCategories" name="cleanCategories" bindingOperationName="cleanCategories" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:endpoint>https://localhost:9443/services/TestMySQL.SecureSOAP11Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:cleanCategories" name="cleanCategories" bindingOperationName="cleanCategories" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    &lt;soapenv:Header/>
    &lt;soapenv:Body/>
-&lt;/soapenv:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:cleanCategories"/></con:call></con:operation><con:operation isOneWay="false" action="urn:insertCategory" name="insertCategory" bindingOperationName="insertCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+&lt;/soapenv:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:cleanCategories"/></con:call></con:operation><con:operation isOneWay="false" action="urn:insertCategory" name="insertCategory" bindingOperationName="insertCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:insertCategory>
          <ds:name>?</ds:name>
       </ds:insertCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:insertCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:updateCategory" name="updateCategory" bindingOperationName="updateCategory" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:insertCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:updateCategory" name="updateCategory" bindingOperationName="updateCategory" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:updateCategory>
@@ -527,7 +527,7 @@
          <ds:id>?</ds:id>
       </ds:updateCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:updateCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:selectCategory" name="selectCategory" bindingOperationName="selectCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:updateCategory"/></con:call></con:operation><con:operation isOneWay="false" action="urn:selectCategory" name="selectCategory" bindingOperationName="selectCategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP12Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -535,10 +535,10 @@
          <ds:name>?</ds:name>
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:selectCategory"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="WSODSTestSOAP11Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="cleanCategories TestCase" searchProperties="true" id="f4893120-c0b5-49b9-8163-2d448672ddec"><con:settings/><con:testStep type="request" name="cleanCategories"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>cleanCategories</con:operation><con:request name="cleanCategories"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:selectCategory"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestMySQLSOAP11Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="cleanCategories TestCase" searchProperties="true" id="f4893120-c0b5-49b9-8163-2d448672ddec"><con:settings/><con:testStep type="request" name="cleanCategories"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>cleanCategories</con:operation><con:request name="cleanCategories"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    &lt;soapenv:Header/>
    &lt;soapenv:Body/>
-&lt;/soapenv:Envelope></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:cleanCategories" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+&lt;/soapenv:Envelope></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:cleanCategories" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -546,14 +546,14 @@
          <ds:name xsi:nil="true" />
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple NotContains" name="Not Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="insertCategory TestCase" searchProperties="true" id="ce3477cd-2315-4e74-a082-745efa59c793"><con:settings/><con:testStep type="request" name="insertCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>insertCategory</con:operation><con:request name="insertCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple NotContains" name="Not Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="insertCategory TestCase" searchProperties="true" id="ce3477cd-2315-4e74-a082-745efa59c793"><con:settings/><con:testStep type="request" name="insertCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>insertCategory</con:operation><con:request name="insertCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:insertCategory>
          <ds:name>Book</ds:name>
       </ds:insertCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;ID>\d+&lt;/ID>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:insertCategory" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;ID>\d+&lt;/ID>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:insertCategory" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -561,7 +561,7 @@
          <ds:name>Book</ds:name>
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateCategory TestCase" searchProperties="true" id="cc2bdc38-8718-4ea3-94a8-b4c4db73a6e0"><con:settings/><con:testStep type="request" name="updateCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>updateCategory</con:operation><con:request name="updateCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateCategory TestCase" searchProperties="true" id="cc2bdc38-8718-4ea3-94a8-b4c4db73a6e0"><con:settings/><con:testStep type="request" name="updateCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>updateCategory</con:operation><con:request name="updateCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:updateCategory>
@@ -569,7 +569,7 @@
          <ds:id>1</ds:id>
       </ds:updateCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:updateCategory" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:updateCategory" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -577,7 +577,7 @@
          <ds:name>Books</ds:name>
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="selectCategory TestCase" searchProperties="true" id="622e9da3-aaac-4836-b436-cad0411bea4b"><con:settings/><con:testStep type="request" name="selectCategoryById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryById"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="selectCategory TestCase" searchProperties="true" id="622e9da3-aaac-4836-b436-cad0411bea4b"><con:settings/><con:testStep type="request" name="selectCategoryById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryById"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -585,7 +585,7 @@
          <ds:name xsi:nil="true" />
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>1&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategoryByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryByName"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>1&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategoryByName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryByName"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -593,7 +593,7 @@
          <ds:name>Books</ds:name>
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>Books&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>Books&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategory"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategory"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>
@@ -601,7 +601,7 @@
          <ds:name xsi:nil="true" />
       </ds:selectCategory>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategoryNotExist"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSODSTestSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryNotExist"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/WSODSTest.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="Simple Contains" name="Contains"><con:configuration><token>(?s).*&lt;id>\d+&lt;/id>.*&lt;name>\w+&lt;/name>.*</token><ignoreCase>false</ignoreCase><useRegEx>true</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="selectCategoryNotExist"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TestMySQLSOAP11Binding</con:interface><con:operation>selectCategory</con:operation><con:request name="selectCategoryNotExist"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9763/services/TestMySQL.SOAP11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ds="http://ds.ws.wso2brasil.com.br/">
    <soapenv:Header/>
    <soapenv:Body>
       <ds:selectCategory>

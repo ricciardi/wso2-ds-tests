@@ -1,0 +1,11 @@
+Project for tests in the WSO2 Data Services Server and the several features.
+
+This project consist of:
+ - Data Services;
+ - SQL's for create databases;
+ - SOAPUI Project with tests.
+
+TODO:
+ - implement more features of MySQL;
+ - implement more databases.
+
